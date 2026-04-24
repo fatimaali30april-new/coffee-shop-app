@@ -12,7 +12,6 @@ let products = [
     // --- CAKES (5 Items) ---
     { id: 6, name: "Honey Lavender Sponge", category: "Cakes", price: 7.50, description: "Light, airy sponge cake with floral notes and honey glaze.", image: "https://images.unsplash.com/photo-1519915028121-7d3463d20b13?w=500" },
     { id: 7, name: "Matcha Velvet Layer", category: "Cakes", price: 8.00, description: "Ceremonial matcha layers with light mascarpone frosting.", image: "https://images.unsplash.com/photo-1582716401301-b2407dc7563d?w=500" },
-    
     { id: 9, name: "Dark Chocolate Fudge", category: "Cakes", price: 7.25, description: "Rich 70% cocoa fudge cake with a sea salt caramel core.", image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500" },
     { id: 10, name: "Strawberry Shortcake", category: "Cakes", price: 6.50, description: "Classic layers of fresh cream and local strawberries.", image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=500" },
 
@@ -25,25 +24,35 @@ let products = [
     // --- JUICES (5 Items) ---
     { id: 16, name: "Golden Sunrise", category: "Juices", price: 6.00, description: "Turmeric, orange, ginger, and black pepper for a boost.", image: "https://images.unsplash.com/photo-1613478223719-2ab802602423?w=500" },
     { id: 17, name: "Green Detox", category: "Juices", price: 6.50, description: "Kale, green apple, cucumber, and a hint of mint.", image: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=500" },
-   
     { id: 19, name: "Watermelon Cooler", category: "Juices", price: 5.25, description: "100% pure watermelon with zero added sugar.", image: "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=500" },
     { id: 20, name: "Hibiscus Iced Tea", category: "Juices", price: 4.50, description: "Floral hibiscus tea brewed fresh with agave syrup.", image: "https://images.unsplash.com/photo-1553531384-397c80973a0b?w=500" }
 ];
 
+// Get all products
 router.get('/', (req, res) => res.json(products));
 
+// Add new product
 router.post('/', (req, res) => {
     const newProduct = { id: Date.now(), ...req.body };
     products.push(newProduct);
     res.status(201).json(newProduct);
 });
 
+// Update product
 router.put('/:id', (req, res) => {
     const index = products.findIndex(p => p.id == req.params.id);
     if (index !== -1) {
         products[index] = { id: Number(req.params.id), ...req.body };
         res.json(products[index]);
+    } else {
+        res.status(404).json({ message: "Product not found" });
     }
 });
 
+// Delete product (YE WALA HISSA ADD KIYA HAI)
 router.delete('/:id', (req, res) => {
+    products = products.filter(p => p.id != req.params.id);
+    res.json({ message: "Product deleted successfully" });
+});
+
+module.exports = router;
