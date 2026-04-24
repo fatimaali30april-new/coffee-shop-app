@@ -2,9 +2,9 @@
   "name": "coffee-shop-app",
   "version": "1.0.0",
   "description": "Full-stack Coffee Shop Website",
-  "main": "server.js",
+  "main": "api/server.js" 
   "scripts": {
-    "start": "node server.js"
+    "start": "node api/server.js"
   },
   "dependencies": {
     "express": "^4.18.2",
