@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Static files (Kyunke server.js 'api' folder ke andar hai)
+// Static files path
 app.use(express.static(path.join(__dirname, '../public')));
 
 // Routes
@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
-// VERCEL PAR SERVER LISTEN NAHI KARNA HOTA (Ye line hata dein ya module.exports lazmi rakhein)
+// Vercel ke liye server setup
 const PORT = process.env.PORT || 5000;
 if (process.env.NODE_ENV !== 'production') {
     app.listen(PORT, () => {
@@ -28,4 +28,4 @@ if (process.env.NODE_ENV !== 'production') {
     });
 }
 
-module.exports = app; // YE LINE SABSE ZAROORI HAI
+module.exports = app;
