@@ -8,15 +8,17 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
 
-// Routes - Confirm karein ke aapki repository mein 'routes' folder aur 'productRoutes.js' maujood hai
-const productRoutes = require('./routes/productRoutes');
+// Sahi Path: Kyunke ye file 'api' folder mein hai, isay '../public' use karna hoga
+app.use(express.static(path.join(__dirname, '../public')));
+
+// Routes
+const productRoutes = require('../routes/productRoutes');
 app.use('/api/products', productRoutes);
 
 // Home route
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
 // Start the server
