@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand:wght@400;600;700&display=swap');
+
+:root {
+    --pastel-bg: #FDFCF0;
+    --coffee-dark: #3C2A21;
+    --accent: #E4D0BE;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--pastel-bg);
+    color: var(--coffee-dark);
+}
+
+h1, h2, .logo-font {
+    font-family: 'Playfair Display', serif;
+}
+
+.hero-overlay {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+}
+
+.product-card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px -12px rgba(60, 42, 33, 0.15);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background: #c2410c;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 9999px;
+    border: 2px solid white;
+}
