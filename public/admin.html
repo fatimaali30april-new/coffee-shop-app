@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel | Inventory</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#FDFCF0]">
+    <div class="max-w-6xl mx-auto py-12 px-6">
+        <div class="flex justify-between items-center mb-10">
+            <div>
+                <a href="index.html" class="text-orange-800 hover:underline">← Return to Site</a>
+                <h1 class="text-4xl font-bold text-gray-900 mt-2" style="font-family: 'Playfair Display', serif;">Inventory Management</h1>
+            </div>
+            <div class="bg-white px-6 py-3 rounded-2xl shadow-sm border border-orange-100">
+                <span class="text-sm text-gray-500 uppercase tracking-widest font-bold">Admin Mode</span>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <div class="lg:col-span-1">
+                <form id="product-form" class="bg-white p-8 rounded-[2rem] shadow-lg border border-orange-50 sticky top-10">
+                    <h2 class="text-xl font-bold mb-6 text-orange-900">Add / Edit Product</h2>
+                    <input type="hidden" id="prod-id">
+                    
+                    <div class="space-y-4">
+                        <input type="text" id="name" placeholder="Product Name" class="w-full bg-gray-50 border-none p-3 rounded-xl outline-none focus:ring-2 focus:ring-orange-200" required>
+                        
+                        <select id="category" class="w-full bg-gray-50 border-none p-3 rounded-xl outline-none focus:ring-2 focus:ring-orange-200">
+                            <option>Coffee</option>
+                            <option>Cakes</option>
+                            <option>Pastries</option>
+                            <option>Juices</option>
+                        </select>
+                        
+                        <input type="number" step="0.01" id="price" placeholder="Price ($)" class="w-full bg-gray-50 border-none p-3 rounded-xl outline-none focus:ring-2 focus:ring-orange-200" required>
+                        
+                        <input type="text" id="image" placeholder="Image URL (Unsplash Link)" class="w-full bg-gray-50 border-none p-3 rounded-xl outline-none focus:ring-2 focus:ring-orange-200">
+                        
+                        <button type="submit" class="w-full bg-orange-800 text-white py-3 rounded-xl font-bold hover:bg-orange-900 transition mt-4">
+                            Save to Inventory
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-[2rem] shadow-lg overflow-hidden border border-orange-50">
+                    <table class="w-full text-left">
+                        <thead class="bg-orange-50/50">
+                            <tr>
+                                <th class="p-5 text-orange-900 font-bold uppercase text-xs">Product</th>
+                                <th class="p-5 text-orange-900 font-bold uppercase text-xs">Category</th>
+                                <th class="p-5 text-orange-900 font-bold uppercase text-xs">Price</th>
+                                <th class="p-5 text-orange-900 font-bold uppercase text-xs text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-table-body">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+<script>window.onload = () => loadAdminProducts();</script>
+<script src="script.js"></script>
+<script>
+    window.onload = () => {
+        renderNavbar(); // Yeh aapko wapis 'Home' aur baqi pages par le janay ke links dega
+        renderFooter();
+        
+        // Agar aap admin page par hain, toh yeh:
+        if (document.getElementById('admin-table-body')) {
+            loadAdminProducts();
+        }
+    };
+</script>
+ <div id="footer-container"></div>
+</body>
+</html>
