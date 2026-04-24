@@ -1,4 +1,3 @@
-
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -11,11 +10,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Routes
+// Routes - Confirm karein ke aapki repository mein 'routes' folder aur 'productRoutes.js' maujood hai
 const productRoutes = require('./routes/productRoutes');
 app.use('/api/products', productRoutes);
 
-// Home route for Vercel
+// Home route
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
