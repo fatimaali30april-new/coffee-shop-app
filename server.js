@@ -1,10 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 5000; // This is the only one you need!
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
@@ -22,11 +21,14 @@ app.post('/api/contact', (req, res) => {
     res.status(200).json({ success: true, message: "Message received successfully!" });
 });
 
+// Home route for Vercel (Taake link khulte hi index.html nazar aaye)
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 // Start the server
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
 
 module.exports = app;
-});
