@@ -1,3 +1,4 @@
+
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -14,14 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const productRoutes = require('./routes/productRoutes');
 app.use('/api/products', productRoutes);
 
-// Contact Form Endpoint
-app.post('/api/contact', (req, res) => {
-    const { name, email, message } = req.body;
-    console.log(`New Message from ${name}: ${message}`);
-    res.status(200).json({ success: true, message: "Message received successfully!" });
-});
-
-// Home route for Vercel (Taake link khulte hi index.html nazar aaye)
+// Home route for Vercel
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
