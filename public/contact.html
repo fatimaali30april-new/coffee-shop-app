@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Bean & Brew</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="flex flex-col min-h-screen">
+    <div id="nav-container"></div>
+
+    <section class="relative py-20 bg-[#F4EAE0] text-center">
+        <h1 class="text-5xl font-bold text-orange-900 mb-4" style="font-family: 'Playfair Display', serif;">Get in Touch</h1>
+        <p class="text-gray-600 max-w-2xl mx-auto px-4">Have a question? We'd love to hear from you. Send us a message below.</p>
+    </section>
+
+    <main class="flex-grow max-w-6xl mx-auto py-16 px-6 grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div class="space-y-10">
+            <div>
+                <h3 class="text-2xl font-bold text-orange-800 mb-4">Visit Our Shop</h3>
+                <p class="text-gray-600 text-lg">123 Coffee Lane<br>Brew City, BC 56789</p>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold text-orange-800 mb-4">Opening Hours</h3>
+                <p class="text-gray-600">Monday - Friday: 7:00 AM - 9:00 PM</p>
+                <p class="text-gray-600">Saturday - Sunday: 8:00 AM - 10:00 PM</p>
+            </div>
+            <div class="p-8 bg-white rounded-[2rem] shadow-sm border border-orange-100">
+                <h3 class="font-bold text-orange-900 mb-2">Customer Support</h3>
+                <p class="text-gray-500 italic">"We aim to respond to all inquiries within 24 hours."</p>
+            </div>
+        </div>
+
+        <form class="bg-white p-10 rounded-[3rem] shadow-xl border border-orange-50 space-y-6">
+            <div>
+                <label class="block text-sm font-bold text-gray-700 mb-2">Full Name</label>
+                <input type="text" placeholder="Enter your name" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-orange-200 outline-none transition" required>
+            </div>
+            <div>
+                <label class="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
+                <input type="email" placeholder="Enter your email" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-orange-200 outline-none transition" required>
+            </div>
+            <div>
+                <label class="block text-sm font-bold text-gray-700 mb-2">Your Message</label>
+                <textarea rows="4" placeholder="How can we help?" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-orange-200 outline-none transition" required></textarea>
+            </div>
+            <button type="submit" class="w-full bg-orange-800 text-white py-4 rounded-2xl font-bold hover:bg-orange-900 transition-all transform hover:scale-[1.02] shadow-lg">
+                Send Message
+            </button>
+        </form>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="script.js"></script>
+    <script>
+        window.onload = () => {
+            renderNavbar();
+            renderFooter();
+        };
+    </script>
+</body>
+</html>
